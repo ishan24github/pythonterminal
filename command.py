@@ -2,14 +2,14 @@ import click
 import ollama
 
 @click.command()
-@click.argument('s', nargs=-1, required=0)
+@click.argument('usr_str', nargs=-1, required=0)
 @click.option("-t", type=click.File('rb'))
-def hello(s,t):
+def summary(usr_str,t):
     str = ''
     if t:
         str = t.read()
     else:
-        for item in s:
+        for item in usr_str:
             str = str + item + ' '
 
 
@@ -26,4 +26,4 @@ def hello(s,t):
 
 
 if __name__ == "__main__":
-    hello()
+    summary()
